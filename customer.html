@@ -11,9 +11,8 @@
 </head>
 <body>
     <input type="button"  class="floatLeft" value="help"/>
-    <div class="floatRight">
-        <div>Customer name</div>
-        <div>Balance</div>
+    <div id="userInfo" class="floatRight">
+
     </div>
 
     <div class="clear"></div>
@@ -21,6 +20,16 @@
         <div class="quantity">5</div>
         <div class="quantity">7</div>
         <div class="quantity">10</div>
+        <div id="orders">
+
+        </div>
+        <div id="trash" align="center" class="icon-trash" >
+            <div class="trash-lid" style="background-color: #E5E9EA"></div>
+            <div class="trash-container" style="background-color: #E5E9EA"></div>
+            <div class="trash-line-1"></div>
+            <div class="trash-line-2"></div>
+            <div class="trash-line-3"></div>
+        </div>
     </div>
     <div class="oval floatLeft">
     <div class="clear"></div>
@@ -29,10 +38,10 @@
         </div>
         <div class="innerOval">
             <div class="quarter-circle-top-left top-oval">
-                <div align="center">ahmad</div>
+                <div align="center">Crackers</div>
             </div>
             <div class="quarter-circle-top-right top-oval">
-                <div align="center">ahmad</div>
+                <div align="center">Beer</div>
             </div>
 
             <div class="clear">
@@ -40,18 +49,35 @@
             </div>
 
             <div class="quarter-circle-down-left down-oval">
-                <div align="center">ahmad</div>
+                <div align="center">Non-Alcoholic</div>
             </div>
 
             <div class="quarter-circle-down-right down-oval">
                 <div align="center">
-                    <div class="item">1</div>
-                    <div class="item">2</div>
+                    <div class="item" data-price=10 data-beerid=1234>BEER</div>
+                    <div class="item" data-price=15 data-beerid=456>BEER</div>
                 </div>
             </div>
         </div>
     </div>
 
+    <a href="#" onClick="pop('popDiv')">Click here to open a popup div</a>
+
+    <div id="popDiv" class="ontop">
+        <table border="1" id="popup">
+            <tr>
+                <td>
+                    This is can be used as a popup window
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Click Close OR escape button to close it
+                    <a href="#" onClick="hide('popDiv')">Close</a>
+                </td>
+            </tr>
+        </table>
+    </div>
 
 </body>
 </html>

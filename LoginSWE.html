@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>The Flying Dutchman</title>
+    <link rel="stylesheet" href="FrontpageCSS.css">
+    <script src="Loginscript.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <form onsubmit="goBack()" class="goBackButton">
+        <input type="image" src="goback.png" height="100" width="100">
+    </form>
+
+    <div class="circle">
+
+    </div>
+
+    <div class="loginField">
+        <form onsubmit="loginPage()">
+            Användarnamn:<br>
+            <input type="text" name="username" id="user">
+            <br>
+            Lösenord:<br>
+            <input type="text" id="pass">
+            <br><br>
+            <input type="submit" value="Logga in">
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
