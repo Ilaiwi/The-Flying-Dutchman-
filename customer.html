@@ -17,6 +17,7 @@
 
     <div class="clear"></div>
     <div id="cart" class="floatLeft">
+        <div class="quantity">1</div>
         <div class="quantity">5</div>
         <div class="quantity">7</div>
         <div class="quantity">10</div>
@@ -40,7 +41,7 @@
             <div class="quarter-circle-top-left top-oval">
                 <div align="center">Crackers</div>
             </div>
-            <div class="quarter-circle-top-right top-oval">
+            <div class="quarter-circle-top-right top-oval" onClick="pop('popDiv'); pop('popup'); pop('ontop');">
                 <div align="center">Beer</div>
             </div>
 
@@ -53,31 +54,28 @@
             </div>
 
             <div class="quarter-circle-down-right down-oval">
-                <div align="center">
-                    <div class="item" data-price=10 data-beerid=1234>BEER</div>
-                    <div class="item" data-price=15 data-beerid=456>BEER</div>
+                <div id="beers" >
+
                 </div>
             </div>
         </div>
     </div>
 
-    <a href="#" onClick="pop('popDiv')">Click here to open a popup div</a>
 
-    <div id="popDiv" class="ontop">
-        <table border="1" id="popup">
-            <tr>
-                <td>
-                    This is can be used as a popup window
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Click Close OR escape button to close it
-                    <a href="#" onClick="hide('popDiv')">Close</a>
-                </td>
-            </tr>
-        </table>
+    <div id="popDiv">
+        <div id="ontop" onClick="hide('popDiv'); hide('popup'); hide('ontop');">
+
+        </div>
+
+        <div id="popup">
+            <button style="color:cornflowerblue" onClick="hide('popDiv'); hide('popup'); hide('ontop');">close</button>
+            <div></div>
+        </div>
+
     </div>
+
+
+
 
 </body>
 </html>
