@@ -57,7 +57,7 @@
     height: 780px ;
     width: 780px;
     position: relative;
-    margin: auto;
+    margin: 20px;
 
 
 }
@@ -121,16 +121,27 @@
     float: right;
 }
 
-/*html {*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-    /*clip: auto;*/
-    /*position: absolute;*/
-    /*overflow: hidden;*/
-/*}*/
+html {
+    width: 100%;
+    height: 100%;
+    clip: auto;
+    position: absolute;
+    overflow: hidden;
+}
 
-#cart{
-    margin: 5%;
+.cart{
+    margin: 2%;
+    background-color: cornsilk;
+    height: 500px;
+    width: 200px;
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 20px;
+    margin-top: 5%;
+}
+
+#user{
+    margin: 2%;
     background-color: cornsilk;
     height: 500px;
     width: 200px;
@@ -138,6 +149,7 @@
     border-radius: 25px;
     border: 2px solid #73AD21;
     padding: 20px;
+    margin-top: 5%;
 }
 
 .item
@@ -198,7 +210,6 @@
     border-radius: 25px;
     border: 2px solid #73AD21;
     padding: 20px;
-
 }
 
 .inCart{
@@ -208,10 +219,7 @@
 
 .inCart:hover{
     color: cadetblue;
-
 }
-
-
 
 .icon-trash {
     width: 48px;
@@ -310,10 +318,10 @@
     background-color: #252527;
 }
 
-#trash{
-    position: absolute;
-    bottom: 0;
-    margin-left: 30%;
+.trash{
+    margin-bottom: 5%;
+    margin-left: 50%;
+    bottom: 7%;
 
 }
 
@@ -323,3 +331,69 @@
     /*border-radius: 10px;*/
 /*}*/
 
+#purchases{
+    overflow-y: scroll;
+    padding: 5px;
+    height: 350px;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+.orders{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 400px;
+    width: 150px;
+}
+
+#shop{
+    margin: 2%;
+    background-color: cornsilk;
+    height: 500px;
+    width: 700px;
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 20px;
+    margin-top: 5%;
+}
+
+#search{
+    width: 90%;
+}
+
+#shopBeer{
+    height: 450px;
+    overflow-y: scroll;
+}
+
+.notAvailable {
+    background: none;
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    color: black;
+    padding: 7px;
+    border-radius: 50px;
+    border: 2px solid #73AD21;
+    text-align: center;
+    top: 15px;
+    text-wrap: normal;
+    font-size: medium;
+}
+
+.mainItem{
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin: 10px;
+
+
+}

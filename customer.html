@@ -11,26 +11,38 @@
 </head>
 <body>
     <input type="button"  class="floatLeft" value="help"/>
-    <div id="userInfo" class="floatRight">
-
-    </div>
 
     <div class="clear"></div>
-    <div id="cart" class="floatLeft">
+
+    <div id="cart" class="floatLeft cart">
+        <h3 id="cartName">Cart</h3>
         <div class="quantity">1</div>
         <div class="quantity">5</div>
         <div class="quantity">7</div>
         <div class="quantity">10</div>
-        <div id="orders">
+        <div id="orders" class="orders">
 
         </div>
-        <div id="trash" align="center" class="icon-trash" >
+
+
+        <div>
+            <button type="button" class="undo">Undo</button>
+            <button type="button" class="redo" >Redo</button>
+        </div>
+
+
+
+
+        <div id="trash" align="center" class="icon-trash trash" >
             <div class="trash-lid" style="background-color: #E5E9EA"></div>
             <div class="trash-container" style="background-color: #E5E9EA"></div>
             <div class="trash-line-1"></div>
             <div class="trash-line-2"></div>
             <div class="trash-line-3"></div>
         </div>
+
+
+
     </div>
     <div class="oval floatLeft">
     <div class="clear"></div>
@@ -39,10 +51,10 @@
         </div>
         <div class="innerOval">
             <div class="quarter-circle-top-left top-oval">
-                <div align="center">Crackers</div>
+                <div align="center" id="crackerName">Crackers</div>
             </div>
             <div class="quarter-circle-top-right top-oval" onClick="pop('popDiv'); pop('popup'); pop('ontop');">
-                <div align="center">Beer</div>
+                <div align="center" id="beerName">Beer</div>
             </div>
 
             <div class="clear">
@@ -50,7 +62,7 @@
             </div>
 
             <div class="quarter-circle-down-left down-oval">
-                <div align="center">Non-Alcoholic</div>
+                <div align="center" id="alcoholfreeName">Non-Alcoholic</div>
             </div>
 
             <div class="quarter-circle-down-right down-oval">
@@ -62,6 +74,17 @@
     </div>
 
 
+    <div id="user" class="floatLeft">
+
+        <div>
+            <h3 id="purchasesName">Purchases</h3>
+            <div id="purchases">
+
+            </div>
+        </div>
+
+    </div>
+
     <div id="popDiv">
         <div id="ontop" onClick="hide('popDiv'); hide('popup'); hide('ontop');">
 
@@ -69,7 +92,47 @@
 
         <div id="popup">
             <button style="color:cornflowerblue" onClick="hide('popDiv'); hide('popup'); hide('ontop');">close</button>
-            <div></div>
+            <div id="mainCart" class="floatLeft cart">
+                <h3 id="mainCartName">Cart</h3>
+                <div class="quantity">1</div>
+                <div class="quantity">5</div>
+                <div class="quantity">7</div>
+                <div class="quantity">10</div>
+                <div id="mainOrders" class="orders">
+
+                </div>
+
+
+                <div>
+                    <button type="button" class="undo">Undo</button>
+                    <button type="button" class="redo" >Redo</button>
+                </div>
+
+
+
+
+                <div id="mainTrash" align="center" class="icon-trash trash" >
+                    <div class="trash-lid" style="background-color: #E5E9EA"></div>
+                    <div class="trash-container" style="background-color: #E5E9EA"></div>
+                    <div class="trash-line-1"></div>
+                    <div class="trash-line-2"></div>
+                    <div class="trash-line-3"></div>
+                </div>
+
+
+
+            </div>
+
+            <div id="shop" class="floatLeft">
+                <div>
+                    <input id="search" type="text"/>
+                    <button type="button">Search</button>
+                </div>
+                <div id="shopBeer">
+
+                </div>
+
+            </div>
         </div>
 
     </div>
