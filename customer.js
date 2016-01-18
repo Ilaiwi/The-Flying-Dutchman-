@@ -174,10 +174,10 @@ $(document).ready(function () {
 
 
         $(".quarter-circle-top-left , .quarter-circle-top-right , .quarter-circle-down-left ").hover(function () {
-                $(this).css("background-color", "yellow");
+                $(this).css("background-color", "#e5ac27");
             },
             function () {
-                $(this).css("background-color", "#c06");
+                $(this).css("background-color", "#bf4d29");
             });
 
     $(".quantity").hide();
@@ -190,6 +190,7 @@ $(document).ready(function () {
             $("#orders").hide();
             $(".undo").hide();
             $(".redo").hide();
+            $("#order").hide();
         },
         stop: function () {
             $(".quantity").hide();
@@ -197,6 +198,7 @@ $(document).ready(function () {
             $("#orders").show();
             $(".undo").show();
             $(".redo").show();
+            $("#order").show();
 
         }
     });
@@ -210,7 +212,7 @@ $(document).ready(function () {
             var beerid = ui.draggable.attr('data-beerid');
             var name= ui.draggable.attr('data-beername');
             console.log(this);
-            addBeerOrder('<div class="inCart floatLeft">' + "<div>" + name + "</div>" + "<div>" +  price * parseInt($(this).html()) +"kr"+ + "</div>" + "</div>")
+            addBeerOrder('<div class="inCart floatLeft" beerid=' + beerid +'>' + "<div>" + name + "</div>" + "<div>" +  price * parseInt($(this).html()) +"kr"+ "</div>" + "</div>")
             //$("#orders").append('<div class="inCart floatLeft">' + "<div>" + name + "</div>" + "<div>" + "total price=" + price * parseInt($(this).html()) + "</div>" + "</div>");
             $(".inCart").draggable({
                 helper: 'clone',
@@ -220,13 +222,23 @@ $(document).ready(function () {
         }
     });
 
-    $("#trash").droppable({
+    $(".trash").droppable({
         drop: function (event, ui) {
             ui.draggable.remove();
-            $('#trash').css({"background": "none"})
+            $('.trash').css({"background": "none"})
         },
         over: function(event,ui){
-            $('#trash').css({"background-color": "cadetblue","alpha": "0.3","border-radius": "10px"});
+            $('.trash').css({"background-color": "cadetblue","alpha": "0.3","border-radius": "10px"});
+        }
+    });
+
+    $("#mainTrash").droppable({
+        drop: function (event, ui) {
+            ui.draggable.remove();
+            $('#mainTrash').css({"background": "none"})
+        },
+        over: function(event,ui){
+            $('#mainTrash').css({"background-color": "cadetblue","alpha": "0.3","border-radius": "10px"});
         }
     });
 
@@ -300,22 +312,25 @@ $(document).ready(function () {
     };
 
     function addBeerOrder (newOrder) {
-        var oldOrder= $("#mainOrders").find(".inCart ");
+        var oldOrder= $("#orders").find(".inCart ");
         console.log(oldOrder);
         pushAction(
             function (redo, data) {
                 if (redo)
                 {
-                    $("#orders").append(data[1]);
                     $("#mainOrders").append(data[1]);
+                    $("#orders").append(data[1]);
+
                 }
                 else
                 {
-                    $("#mainOrders").html("");
                     $("#orders").html("");
+                    $("#mainOrders").html("");
+
                     for(i=0;i<data[0].length;i++){
-                        $("#orders").append(data[0][i]);
                         $("#mainOrders").append(data[0][i]);
+                        $("#orders").append(data[0][i]);
+
                     }
                 }
 
@@ -333,6 +348,43 @@ $(document).ready(function () {
     $(".redo").click(function(){
         undostack.redo();
     });
+
+
+    $("#order").click(function(){
+        var orders= $("#mainOrders").find(".inCart ");
+        for(i=0;i<orders.length;i++){
+            console.log(orders[i].getAttribute('beerid'));
+            $.ajax({
+                url: "http://pub.jamaica-inn.net/fpdb/api.php?username=" + username + "&password=" + password + "&action=purchases_append&beer_id="+orders[i].getAttribute('beerid')
+            });
+        }
+        undostack.invalidateAll();
+        $('.inCart').remove();
+    });
+
+    $("#searchButton").click(function(){
+        $("#search").text
+    })
+
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            console.log(xhttp.responseText);
+        }
+    };
+    xhttp.open("GET", "http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=iou_get_all", true);
+    xhttp.send();
+
+    //$.ajax({
+    //    url: "http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=iou_get_all",
+    //    async: false,
+    //    cache: false,
+    //    success: function (data) {
+    //        console.log("Okan");
+    //        console.log(data);
+    //    }
+    //});
 
 
 
